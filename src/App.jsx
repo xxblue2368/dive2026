@@ -14,6 +14,14 @@ export default function App() {
   const [isPitchModalOpen, setIsPitchModalOpen] = useState(false);
   const [isAutoPlay, setIsAutoPlay] = useState(false);
 
+  // Sync selectedRegion if dataset region ID changes
+  React.useEffect(() => {
+    const current = COASTAL_REGIONS.find(r => r.id === selectedRegion?.id);
+    if (!current) {
+      setSelectedRegion(COASTAL_REGIONS[0]);
+    }
+  }, [selectedRegion]);
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', paddingBottom: '40px' }}>
       {/* Header Bar */}
@@ -47,7 +55,7 @@ export default function App() {
                 gap: '6px'
               }}
             >
-              <LayoutGrid size={15} /> 전체 대시보드
+              <LayoutGrid size={15} /> 📊 전체 대시보드
             </button>
             <button
               onClick={() => setActiveTab('map')}
@@ -65,7 +73,7 @@ export default function App() {
                 gap: '6px'
               }}
             >
-              <Map size={15} /> 지도 비교 슬라이더
+              <Map size={15} /> 🗺️ 지도 비교 슬라이더
             </button>
             <button
               onClick={() => setActiveTab('attribution')}
@@ -83,7 +91,7 @@ export default function App() {
                 gap: '6px'
               }}
             >
-              <PieChart size={15} /> 원인 기여도 분석
+              <PieChart size={15} /> 📈 5대 요인 기여도 분석
             </button>
             <button
               onClick={() => setActiveTab('simulator')}
@@ -101,7 +109,7 @@ export default function App() {
                 gap: '6px'
               }}
             >
-              <Sliders size={15} /> What-If 시뮬레이터
+              <Sliders size={15} /> 🤖 RF 해안선 예측 시뮬레이터
             </button>
             <button
               onClick={() => setActiveTab('copilot')}
@@ -119,7 +127,7 @@ export default function App() {
                 gap: '6px'
               }}
             >
-              <Bot size={15} /> AI 진단 챗봇
+              <Bot size={15} /> 💬 AI 진단 챗봇
             </button>
           </div>
 
@@ -141,7 +149,7 @@ export default function App() {
             <CoastMapSlider region={selectedRegion} isAutoPlay={isAutoPlay} setIsAutoPlay={setIsAutoPlay} />
 
             {/* Middle Row: Factor Attribution + WhatIf Simulator */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '20px' }}>
               <FactorAttributionPanel region={selectedRegion} />
               <WhatIfSimulator region={selectedRegion} />
             </div>
