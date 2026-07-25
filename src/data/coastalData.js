@@ -2,159 +2,157 @@
 
 export const COASTAL_REGIONS = [
   {
-    id: "gangneung",
-    name: "동해안 강릉 안목-경포",
-    locationName: "Gangneung Anmok Beach, South Korea",
-    coords: [37.7715, 128.9485],
-    zoom: 14,
-    erosionRate: "3.2m / 년",
-    riskLevel: "CRITICAL",
-    riskColor: "#FF4757",
-    description: "항만 방파제 설치로 인한 도사(모래) 이송 차단과 기후변화 파랑 에너지 증대로 모래사장 급격히 소실.",
-    historicalTimeline: [
-      { year: 1995, width: 85, photoText: "1995년: 넓은 백사장 (폭 85m), 자연 식생 보존" },
-      { year: 2010, width: 54, photoText: "2010년: 남항진 방파제 확충 후 연안류 침식 가속 (폭 54m)" },
-      { year: 2026, width: 28, photoText: "2026년 현재: 백사장 심각 손실 (폭 28m), 도로 침수 위험" },
-      { year: 2050, width: 9,  photoText: "2050년 예측: 백사장 소멸 위험 (폭 9m 예측)" }
-    ],
-    attributionFactors: [
-      { name: "방파제·해안구조물 (Jetties & Breakwaters)", percent: 42, color: "#FF4757", category: "human", icon: "Building2" },
-      { name: "하천 토사 유입 감소 (Upstream Sediment Trap)", percent: 23, color: "#FFA502", category: "river", icon: "Waves" },
-      { name: "해수면 상승 & 기후변화 (Sea Level Rise)", percent: 20, color: "#00F2FE", category: "climate", icon: "TrendingUp" },
-      { name: "이상 파랑 & 태풍 에너지 (Extreme Surges)", percent: 12, color: "#70A1FF", category: "storm", icon: "Wind" },
-      { name: "해안 사구/식생 손실 (Dune Degradation)", percent: 3, color: "#2ED573", category: "eco", icon: "Trees" }
-    ],
-    stats: {
-      totalAreaLost: "124,500 m²",
-      economicImpact: "$48.5M (약 670억원)",
-      vulnerableBuildings: "38개 상가 및 도로",
-      dominantFactor: "방파제에 의한 표사 이동 차단 (42%)"
-    },
-    recommendation: "수중 잠제(Breakwater Reef) 설치 및 하천 토사 바이패싱 시스템 구축 긴급 필요"
-  },
-  {
-    id: "saemangeum",
-    name: "서해안 새만금 연안",
-    locationName: "Saemangeum Coast, Yellow Sea, SK",
-    coords: [35.8450, 126.5420],
-    zoom: 12,
-    erosionRate: "2.8m / 년 (인근 침식)",
-    riskLevel: "HIGH",
-    riskColor: "#FFA502",
-    description: "세계 최장 방조제 건설로 인한 조류 유속 변형, 인근 연안 갯벌 침식과 내측 토사 퇴적 비대칭 현상.",
-    historicalTimeline: [
-      { year: 1995, width: 95, photoText: "1995년: 광활한 자연 갯벌 및 대형 조류 유입" },
-      { year: 2010, width: 70, photoText: "2010년: 방조제 완공 후 외해 파랑 수중 에너지 집중" },
-      { year: 2026, width: 45, photoText: "2026년 현재: 외곽 해안 수심 깊어짐 & 인근 침식 심화" },
-      { year: 2050, width: 22, photoText: "2050년 예측: 갯벌 유실율 60% 상회 가능성" }
-    ],
-    attributionFactors: [
-      { name: "방조제 및 매립 구조물 (Seawalls & Reclamation)", percent: 58, color: "#FF4757", category: "human", icon: "Building2" },
-      { name: "조류 및 수력학 변화 (Tidal Hydrodynamics)", percent: 22, color: "#00F2FE", category: "tide", icon: "Activity" },
-      { name: "하천 토사 유입 차단 (River Damming)", percent: 12, color: "#FFA502", category: "river", icon: "Waves" },
-      { name: "해수면 상승 (Global SLR)", percent: 5, color: "#70A1FF", category: "climate", icon: "TrendingUp" },
-      { name: "이상 태풍 (Extreme Weather)", percent: 3, color: "#A4B0BE", category: "storm", icon: "Wind" }
-    ],
-    stats: {
-      totalAreaLost: "310,000 m²",
-      economicImpact: "$82.0M (약 1,130억원)",
-      vulnerableBuildings: "어항 및 수산 양식장",
-      dominantFactor: "대형 방조제에 의한 조류 통로 변경 (58%)"
-    },
-    recommendation: "해수 유통량 확대 및 조류 파열 완화 수중 댐 구획화"
-  },
-  {
-    id: "haeundae",
-    name: "부산 해운대 해수욕장",
-    locationName: "Haeundae Beach, Busan, SK",
-    coords: [35.1587, 129.1604],
+    id: "songjeong",
+    name: "부산 송정 해수욕장",
+    locationName: "Songjeong Beach, Busan, SK",
+    coords: [35.1786, 129.1997],
     zoom: 15,
     erosionRate: "1.9m / 년",
     riskLevel: "MODERATE",
     riskColor: "#ECCC68",
     description: "해안가 마천루 건물군 반사파와 태풍 고파랑 에너지 결합으로 모래 투입 없이는 침식이 지속되는 인공 유지 백사장.",
     historicalTimeline: [
-      { year: 1995, width: 70, photoText: "1995년: 모래 유실 진행 중인 도심 해수욕장" },
-      { year: 2010, width: 40, photoText: "2010년: 태풍 힌남노 및 파랑으로 백사장 폭 40m 축소" },
-      { year: 2026, width: 55, photoText: "2026년 현재: 매년 수십만m³ 양빈(모래 투입)으로 폭 55m 유지" },
-      { year: 2050, width: 25, photoText: "2050년 예측: 양빈 중단 시 폭 25m 미만 축소 예측" }
+      { year: 2015, width: 50.0, photoText: "2015년: 백사장 대규모 확장기 시작 (기준 백사장 폭 50m)" },
+      { year: 2016, width: 54.75, photoText: "2016년: +5,700m² 유입 (해안선 +4.75m 전진)" },
+      { year: 2017, width: 63.42, photoText: "2017년: +10,400m² 대규모 유입 (해안선 +8.67m 전진)" },
+      { year: 2018, width: 56.92, photoText: "2018년: -7,800m² 유실 (해안선 -6.50m 후퇴, 1차 침식기)" },
+      { year: 2019, width: 55.59, photoText: "2019년: -1,600m² 유실 (해안선 -1.33m 후퇴)" },
+      { year: 2020, width: 66.17, photoText: "2020년: +12,700m² 대폭 복원 (해안선 +10.58m 전진 / 침식 제로)" },
+      { year: 2021, width: 69.09, photoText: "2021년: +3,500m² 유입 (해안선 +2.92m 전진 / 10년 최고 정점)" },
+      { year: 2022, width: 55.34, photoText: "2022년: -16,500m² 유실 (해안선 -13.75m 후퇴 / 💥 10년 최악 유실)" },
+      { year: 2023, width: 55.44, photoText: "2023년: +100m² 변화 (동적 평형 상태)" },
+      { year: 2024, width: 64.44, photoText: "2024년: +10,800m² 일시 회복 (해안선 +9.00m 전진)" },
+      { year: 2025, width: 52.94, photoText: "2025년: -13,800m² 재침식 (해안선 -11.50m 후퇴 / 💥 치명적 재침식)" },
+      { year: 2050, width: 25.0, photoText: "2050년 예측: 방치 시 백사장 폭 25m 미만 축소 예측" }
+    ],
+    timelinePhases: [
+      {
+        id: 1,
+        title: "백사장 대규모 확장기 (전반기 성장)",
+        period: "2015 ~ 2017년",
+        type: "expansion",
+        badge: "🟢 확장기",
+        badgeColor: "#2ED573",
+        summary: "2년에 걸쳐 총 16,100 m²의 모래가 쏟아져 들어오며 해안선이 바다 쪽으로 약 13.4m 전진한 백사장 확장 시기입니다.",
+        yearlyData: [
+          { yearRange: "2015-2016년", areaChange: "+5,700 m²", shorelineChange: "+4.75m 전진", note: "백사장 대규모 확장 시작" },
+          { yearRange: "2016-2017년", areaChange: "+10,400 m²", shorelineChange: "+8.67m 전진", note: "전반기 가속 유입" }
+        ]
+      },
+      {
+        id: 2,
+        title: "1차 유실 및 침식기",
+        period: "2017 ~ 2019년",
+        type: "erosion",
+        badge: "🔴 1차 침식",
+        badgeColor: "#FF4757",
+        summary: "앞서 쌓였던 모래의 절반 이상(-9,400 m²)이 태풍과 고파랑으로 쓸려 나가며 해안선이 육지 쪽으로 후퇴한 1차 침식 국면입니다.",
+        yearlyData: [
+          { yearRange: "2017-2018년", areaChange: "-7,800 m²", shorelineChange: "-6.50m 후퇴", note: "태풍/고파랑 대규모 유실" },
+          { yearRange: "2018-2019년", areaChange: "-1,600 m²", shorelineChange: "-1.33m 후퇴", note: "지속적 해안선 후퇴" }
+        ]
+      },
+      {
+        id: 3,
+        title: "자연 복원 및 안착기 (최대 정점)",
+        period: "2019 ~ 2021년",
+        type: "recovery",
+        badge: "🟢 최대 정점",
+        badgeColor: "#00F2FE",
+        summary: "10년 치 데이터 중 단 1픽셀의 침식도 없이 완벽하게 모래만 쌓인 이례적인 해(+12,700 m²)를 포함하여, 백사장이 가장 넓고 두텁게 안정화되었던 해변 기능의 최전성기입니다.",
+        yearlyData: [
+          { yearRange: "2019-2020년", areaChange: "+12,700 m²", shorelineChange: "+10.58m 전진 (침식 제로)", note: "단 1픽셀 침식도 없는 이례적 해" },
+          { yearRange: "2020-2021년", areaChange: "+3,500 m²", shorelineChange: "+2.92m 전진", note: "백사장 최고 정점 전성기" }
+        ]
+      },
+      {
+        id: 4,
+        title: "극단적 롤러코스터 및 침식 우위기",
+        period: "2021 ~ 2025년",
+        type: "rollercoaster",
+        badge: "🔴 침식 우위",
+        badgeColor: "#FFA502",
+        summary: "1만 m² 이상의 대규모 유실과 대규모 회복이 매년 교차하는 극단적 변동성 시기입니다. 전반기 5년 동안 힘들게 쌓았던 모래를 후반기에 대부분 깎아먹으며 장기적 해안선 후퇴 위험이 심화되었습니다.",
+        yearlyData: [
+          { yearRange: "2021-2022년", areaChange: "-16,500 m²", shorelineChange: "-13.75m 후퇴", note: "💥 10년 중 최악의 유실" },
+          { yearRange: "2022-2023년", areaChange: "+100 m²", shorelineChange: "0.00m (변화 없음)", note: "동적 평형 유지" },
+          { yearRange: "2023-2024년", areaChange: "+10,800 m²", shorelineChange: "+9.00m 전진", note: "🌱 대규모 일시 회복" },
+          { yearRange: "2024-2025년", areaChange: "-13,800 m²", shorelineChange: "-11.50m 후퇴", note: "💥 치명적 재침식" }
+        ]
+      }
     ],
     attributionFactors: [
-      { name: "도심 고층 건물 반사파 (Urban Reflection Waves)", percent: 35, color: "#FF6B81", category: "human", icon: "Building2" },
-      { name: "태풍 및 고파랑 에너지 (Typhoon Surge)", percent: 30, color: "#FF4757", category: "storm", icon: "Wind" },
-      { name: "해수면 상승 (Sea Level Rise)", percent: 20, color: "#00F2FE", category: "climate", icon: "TrendingUp" },
-      { name: "하천 모래 차단 (Sand Trapping)", percent: 10, color: "#FFA502", category: "river", icon: "Waves" },
-      { name: "해안 식생 상실 (Vegetation Loss)", percent: 5, color: "#2ED573", category: "eco", icon: "Trees" }
+      { name: "구간 누적 강수량 (mm)", percent: 30.15, color: "#00F2FE", category: "hydro", icon: "CloudRain" },
+      { name: "촬영 순간 조위 (cm)", percent: 24.53, color: "#4FACFE", category: "tide", icon: "Waves" },
+      { name: "연도별 최고 조위 (cm)", percent: 24.25, color: "#FFA502", category: "tide", icon: "TrendingUp" },
+      { name: "구간 최대 유의파고 (m)", percent: 14.15, color: "#FF4757", category: "wave", icon: "Wind" },
+      { name: "구간 누적 파랑에너지 (kW/m)", percent: 6.91, color: "#2ED573", category: "energy", icon: "Zap" }
     ],
     stats: {
       totalAreaLost: "89,000 m² (양빈 투입 전 기준)",
       economicImpact: "$62.0M (관광 가치 및 양빈 비용)",
       vulnerableBuildings: "해안 산책로 및 호안 도로",
-      dominantFactor: "도심 반사파 & 태풍 파랑 에너지 (65%)"
+      dominantFactor: "구간 누적 강수량 & 조위 변수 (78.93%)"
     },
-    recommendation: "지능형 돌제(Groyne) 배치 및 양류 방지 수중 생태 제방 복원"
-  },
-  {
-    id: "miami",
-    name: "미국 마이애미 비치",
-    locationName: "Miami Beach, Florida, USA",
-    coords: [25.7907, -80.1300],
-    zoom: 13,
-    erosionRate: "4.1m / 년",
-    riskLevel: "CRITICAL",
-    riskColor: "#FF4757",
-    description: "석회암 기반암을 통한 해수 침투와 대서양 허리케인 폭풍 해일로 최고 수준의 해수면 상승 및 침식 피해 지역.",
-    historicalTimeline: [
-      { year: 1995, width: 90, photoText: "1995년: 플로리다 대표 백사장" },
-      { year: 2010, width: 62, photoText: "2010년: 만조 시 도로 침수(King Tide) 일상화" },
-      { year: 2026, width: 35, photoText: "2026년 현재: 펌프장 및 양빈 사업으로 미봉책 대응 중" },
-      { year: 2050, width: 5,  photoText: "2050년 예측: 해수면 +45cm 상승 시 90% 침수 위험" }
-    ],
-    attributionFactors: [
-      { name: "기후변화 & 해수면 상승 (Sea Level Rise)", percent: 52, color: "#00F2FE", category: "climate", icon: "TrendingUp" },
-      { name: "허리케인 & 폭풍 해일 (Hurricane Surge)", percent: 28, color: "#FF4757", category: "storm", icon: "Wind" },
-      { name: "초고층 과도 개발 (Over-Development)", percent: 12, color: "#FF6B81", category: "human", icon: "Building2" },
-      { name: "맹그로브 자연방벽 제거 (Mangrove Loss)", percent: 8, color: "#2ED573", category: "eco", icon: "Trees" }
-    ],
-    stats: {
-      totalAreaLost: "450,000 m²",
-      economicImpact: "$3.5B (약 4조 8,000억원)",
-      vulnerableBuildings: "아르데코 호스피탈리티 지구",
-      dominantFactor: "지구 온난화에 따른 글로벌 해수면 상승 (52%)"
-    },
-    recommendation: "해수 배수 펌프망 확장 및 입체적 방수 장벽(Sea Wall) 구축"
-  },
-  {
-    id: "tuvalu",
-    name: "투발루 환초 해안",
-    locationName: "Funafuti, Tuvalu Atoll",
-    coords: [-8.5167, 179.2167],
-    zoom: 13,
-    erosionRate: "5.5m / 년",
-    riskLevel: "EXTREME CRITICAL",
-    riskColor: "#FF0000",
-    description: "해수면 상승 및 백화 현상으로 인한 산호초 파괴. 국토 전체 침수 직전의 글로벌 기후위기 최전선.",
-    historicalTimeline: [
-      { year: 1995, width: 60, photoText: "1995년: 환초 섬 내부 안정적 주거지" },
-      { year: 2010, width: 35, photoText: "2010년: 산호초 파괴로 외부 파도 직격" },
-      { year: 2026, width: 15, photoText: "2026년 현재: 최고 고도 4m 미만, 만조 시 국토 50% 침수" },
-      { year: 2050, width: 0,  photoText: "2050년 예측: 국토 수몰 위험성 90%" }
-    ],
-    attributionFactors: [
-      { name: "글로벌 해수면 상승 (Global Sea Level Rise)", percent: 65, color: "#00F2FE", category: "climate", icon: "TrendingUp" },
-      { name: "산호초 사멸 & 방파기능 상실 (Coral Bleaching)", percent: 22, color: "#FFA502", category: "eco", icon: "Trees" },
-      { name: "태풍 & 킹타이드 (Cyclone & King Tides)", percent: 10, color: "#FF4757", category: "storm", icon: "Wind" },
-      { name: "인공 토지 변경 (Land Alteration)", percent: 3, color: "#A4B0BE", category: "human", icon: "Building2" }
-    ],
-    stats: {
-      totalAreaLost: "185,000 m² (섬 전체의 18%)",
-      economicImpact: "국가 존재 가치 및 이주 비용 $1.2B",
-      vulnerableBuildings: "국가 전체 인프라 및 주거지",
-      dominantFactor: "해수면 상승 및 해양 산성화 산호 사멸 (87%)"
-    },
-    recommendation: "국제 탄소 배출 규제 연대 및 메타버스/디지털 트윈 국토 보존 프로젝트"
+    recommendation: "지능형 조위/파고 모니터링 연동 돌제(Groyne) 배치 및 양류 방지 수중 생태 제방 복원"
   }
 ];
+
+// Random Forest Model 2026-2028 Prediction Dataset
+export const RF_PREDICTION_DATA = [
+  {
+    year: 2026,
+    input: {
+      rainfall: 1717.5,
+      maxWaveHeight: 5.53000021,
+      waveEnergy: 15732.09961,
+      peakTide: 219.26
+    },
+    rfRawPrediction: 0.8, // +0.8m (퇴적/전진)
+    stdDev: 4.5, // 불확실성 표준편차 (4~5m)
+    note: "누적 파랑에너지 극대 (15,732.1 kW/m)"
+  },
+  {
+    year: 2027,
+    input: {
+      rainfall: 1971.6,
+      maxWaveHeight: 4.269999981,
+      waveEnergy: 13879.00024,
+      peakTide: 284.69
+    },
+    rfRawPrediction: 2.3, // +2.3m (퇴적/전진)
+    stdDev: 4.5,
+    note: "구간 누적 강수량 최대 (1,971.6 mm)"
+  },
+  {
+    year: 2028,
+    input: {
+      rainfall: 1291.0,
+      maxWaveHeight: 5.590000153,
+      waveEnergy: 13746.30005,
+      peakTide: 353.57
+    },
+    rfRawPrediction: 0.0, // 0.0m (변화 없음)
+    stdDev: 4.5,
+    note: "최고 조위 폭증 (353.57 cm) 및 최대 유의파고 극대"
+  }
+];
+
+// Random Forest Uncertainty-Adjusted Calculation Function
+export function calculateRFPrediction(dataItem, alpha = 1.0) {
+  const raw = dataItem.rfRawPrediction;
+  const std = dataItem.stdDev;
+  // Uncertainty subtracted to reflect lower-bound erosion risk
+  const adjusted = raw - (alpha * std);
+  
+  return {
+    raw: raw > 0 ? `+${raw.toFixed(1)}m` : `${raw.toFixed(1)}m`,
+    adjustedVal: parseFloat(adjusted.toFixed(1)),
+    adjustedText: adjusted > 0 ? `+${adjusted.toFixed(1)}m (전진)` : adjusted === 0 ? `0.0m (변화없음)` : `${adjusted.toFixed(1)}m (후퇴/침식)`,
+    isErosion: adjusted < 0,
+    statusText: adjusted < -3.5 ? "💥 대규모 침식 위험" : adjusted < 0 ? "🔴 침식 경고" : "🟢 안정적"
+  };
+}
 
 // Physical calculation engine for What-If Simulation
 export function calculateWhatIfImpact(baseRegion, tempRise, seawallHeight, sedimentSupplied) {
@@ -193,3 +191,4 @@ export function calculateWhatIfImpact(baseRegion, tempRise, seawallHeight, sedim
     statusText: riskIndex > 75 ? "위험 (CRITICAL)" : riskIndex > 45 ? "경고 (HIGH RISK)" : "안정적 (CONTROLLED)"
   };
 }
+
