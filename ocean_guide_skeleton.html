@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Morph IDE - User Guide</title>
+    <style>
+        /* ==============================
+           바다(Ocean) 테마 색상 팔레트
+           ============================== */
+        :root {
+            --bg-ocean-dark: #070D1D;      /* 심해 네이비 (배경) */
+            --bg-panel: rgba(15, 28, 56, 0.75); /* 바닷물 반투명 유리 패널 */
+            --primary-blue: #0077B6;      /* 해양 블루 */
+            --accent-cyan: #00F2FE;       /* 해안 시안 (포인트 네온) */
+            --accent-aqua: #4FACFE;       /* 아쿠아 에메랄드 */
+            --foam-white: #E0F7FA;        /* 파도 거품 흰색 */
+            --text-muted: #94A3B8;        /* 보조 텍스트 */
+            --border-ocean: rgba(0, 242, 254, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 20%, #0F2347 0%, var(--bg-ocean-dark) 80%);
+            color: var(--foam-white);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* 왼쪽 사이드바 (네비게이션) */
+        aside {
+            width: 260px;
+            background: rgba(10, 20, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-ocean);
+            padding: 30px 20px;
+            box-shadow: 4px 0 25px rgba(0, 119, 182, 0.15);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--foam-white);
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 12px;
+        }
+
+        .nav-menu a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+
+        /* 메뉴 호버 및 활성화 효과 (바다 물결 느낌) */
+        .nav-menu a:hover, .nav-menu a.active-link {
+            color: var(--foam-white);
+            background: linear-gradient(90deg, rgba(0, 242, 254, 0.15) 0%, rgba(79, 172, 254, 0.05) 100%);
+            border-left: 3px solid var(--accent-cyan);
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.1);
+        }
+
+        /* 오른쪽 메인 컨텐츠 영역 */
+        main {
+            flex: 1;
+            padding: 50px 60px;
+            overflow-y: auto;
+        }
+
+        .guide-section {
+            display: none;
+            animation: oceanFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .guide-section.active {
+            display: block;
+        }
+
+        @keyframes oceanFade {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 헤더 및 텍스트 스타일 */
+        h1 {
+            color: var(--accent-cyan);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-ocean);
+            padding-bottom: 14px;
+        }
+
+        h2 {
+            color: var(--accent-aqua);
+            font-size: 1.4rem;
+            margin: 32px 0 16px 0;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #CBD5E1;
+            font-size: 1.02rem;
+        }
+
+        /* 코드 터미널 블록 (바다 딥블루) */
+        .code-block {
+            background-color: #040914;
+            border: 1px solid var(--border-ocean);
+            border-radius: 10px;
+            padding: 18px;
+            color: var(--accent-cyan);
+            font-family: 'Consolas', monospace;
+            margin-bottom: 24px;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-block::before {
+            content: "Ocean Shell";
+            position: absolute;
+            top: -11px;
+            left: 16px;
+            background: var(--primary-blue);
+            color: var(--foam-white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+        }
+
+        /* 카드 그리드 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-panel);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-ocean);
+            padding: 24px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.15);
+        }
+
+        .card h3 {
+            color: var(--foam-white);
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+
+        .highlight {
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 왼쪽 네비게이션 -->
+    <aside>
+        <div class="logo">OCEAN<span>MORPH</span></div>
+        <ul class="nav-menu">
+            <li><a class="nav-btn active-link" data-target="intro">1. 시작하기</a></li>
+            <li><a class="nav-btn" data-target="setup">2. 환경 설정</a></li>
+            <li><a class="nav-btn" data-target="features">3. 주요 기능</a></li>
+        </ul>
+    </aside>
+
+    <!-- 오른쪽 메인 가이드 컨텐츠 -->
+    <main>
+        <!-- 섹션 1: 시작하기 -->
+        <section id="intro" class="guide-section active">
+            <h1>Welcome to Ocean Morph</h1>
+            <p><strong>Ocean Morph</strong>에 오신 것을 환영합니다. 깊은 바다처럼 유연하고 가벼운 개발 환경을 제공하기 위해 설계되었습니다.</p>
+            
+            <h2>핵심 특징</h2>
+            <div class="feature-grid">
+                <div class="card">
+                    <h3>Deep Blue 컴파일</h3>
+                    <p>로컬 리소스 부담 없이 빠른 응답 속도를 보여주는 최신 엔진을 탑재했습니다.</p>
+                </div>
+                <div class="card">
+                    <h3>Aqua 신택스</h3>
+                    <p>코드를 작성하는 즉시 <span class="highlight">아쿠아 시안</span> 컬러 하라이팅으로 가독성을 극대화합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 환경 설정 -->
+        <section id="setup" class="guide-section">
+            <h1>환경 설정 (Setup)</h1>
+            <p>초기 설치 및 프로젝트 세팅 방법입니다. 아래 명령어들을 실행하세요.</p>
+            
+            <h2>1. CLI 도구 설치</h2>
+            <div class="code-block">
+                $ npm install -g ocean-cli<br>
+                $ ocean --version
+            </div>
+
+            <h2>2. 새 프로젝트 생성</h2>
+            <p>원하는 디렉토리로 이동한 후, 초기화 명령어를 실행합니다.</p>
+            <div class="code-block">
+                $ ocean init my-ocean-project<br>
+                > Success! Project created in /my-ocean-project
+            </div>
+        </section>
+
+        <!-- 섹션 3: 주요 기능 -->
+        <section id="features" class="guide-section">
+            <h1>주요 기능 (Features)</h1>
+            <p>바다 테마 디버그 도구 및 내장 터미널 기능입니다.</p>
+            
+            <h2>딥 오션 디버거</h2>
+            <p>디버깅 모드에 진입하면 조용하고 차분한 <span style="color: var(--accent-aqua); font-weight:bold;">딥 블루</span> 와이어프레임 뷰로 전환됩니다.</p>
+
+            <h2>시 폼(Sea Foam) 터미널</h2>
+            <p>터미널 출력 시 시인성이 뛰어난 <span class="highlight">아쿠아/시안</span> 폰트를 적용해 눈의 피로를 최소화합니다.</p>
+        </section>
+    </main>
+
+    <!-- 탭 전환 자바스크립트 -->
+    <script>
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.guide-section');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navBtns.forEach(b => b.classList.remove('active-link'));
+                btn.classList.add('active-link');
+
+                sections.forEach(sec => sec.classList.remove('active'));
+                
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
